@@ -101,7 +101,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             // - This uses basic math to combine motions and is easier to drive straight.
             double drive = -gamepad1.left_stick_y;
             double turn  =  gamepad1.right_stick_x;
-            double arm   =  gamepad1.dpad
+            double arm   =  1;
             leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
             rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
             armPower   = Range.clip(drive - turn, -1.0, 1.0) ;
