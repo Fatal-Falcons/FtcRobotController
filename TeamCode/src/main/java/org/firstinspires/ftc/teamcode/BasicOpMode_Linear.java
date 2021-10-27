@@ -54,7 +54,8 @@ import com.qualcomm.robotcore.util.Range;
 // Git Test (line can be deleted later) --Coach Birch
 
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
-@Disabled
+//@Disabled
+//Spencer github test
 public class BasicOpMode_Linear extends LinearOpMode {
 
     // Declare OpMode members.
