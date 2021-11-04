@@ -60,10 +60,6 @@ public class Drive extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private DcMotor flywheel = null;
-    private DcMotor jointOne = null;
-    private Servo jointTwo = null;
-    private Servo jointThree = null;
-    private Servo armSpin = null;
 
     @Override
     public void runOpMode() {
