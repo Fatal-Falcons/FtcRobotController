@@ -60,6 +60,7 @@ public class Drive extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private DcMotor flywheel = null;
+    private DcMotor armMotor = null;
 
     @Override
     public void runOpMode() {
@@ -72,12 +73,14 @@ public class Drive extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         flywheel = hardwareMap.get(DcMotor.class, "flywheel");
+        armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
+        armMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -90,6 +93,7 @@ public class Drive extends LinearOpMode {
             double leftPower;
             double rightPower;
             double flywheelPower;
+            double armMotorPower;
 
             // Choose to drive using either Tank Mode, or POV Mode
             // Comment out the method that's not used.  The default below is POV.
