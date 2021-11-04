@@ -105,7 +105,7 @@ public class Drive extends LinearOpMode {
             leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
             rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
-            if (gamepad2.y) {
+            if (gamepad2.b) {
                 flywheelPower = 1;
             } else {
                 flywheelPower = 0;
@@ -113,6 +113,8 @@ public class Drive extends LinearOpMode {
 
             if (gamepad2.y) {
                 armMotorPower = 1;
+            } else if (gamepad2.x) {
+                armMotorPower = -1;
             } else {
                 armMotorPower = 0;
             }
