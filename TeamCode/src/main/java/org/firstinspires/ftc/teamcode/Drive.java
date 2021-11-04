@@ -111,10 +111,17 @@ public class Drive extends LinearOpMode {
                 flywheelPower = 0;
             }
 
+            if (gamepad2.y) {
+                armMotorPower = 1;
+            } else {
+                armMotorPower = 0;
+            }
+
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
             flywheel.setPower(flywheelPower);
+            armMotor.setPower(armMotorPower);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
