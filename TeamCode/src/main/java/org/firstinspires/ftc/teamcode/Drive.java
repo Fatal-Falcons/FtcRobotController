@@ -59,7 +59,6 @@ public class Drive extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
-    private DcMotor flywheel = null;
     private DcMotor armMotor = null;
 
     @Override
@@ -72,14 +71,12 @@ public class Drive extends LinearOpMode {
         // step (using the FTC Robot Controller app on the phone).
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-        flywheel = hardwareMap.get(DcMotor.class, "flywheel");
         armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        flywheel.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
@@ -92,7 +89,6 @@ public class Drive extends LinearOpMode {
             // Setup a variable for each drive wheel to save power level for telemetry
             double leftPower;
             double rightPower;
-            double flywheelPower;
             double armMotorPower;
 
             // Choose to drive using either Tank Mode, or POV Mode
@@ -105,15 +101,9 @@ public class Drive extends LinearOpMode {
             leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
             rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
-            if (gamepad2.b) {
-                flywheelPower = 1;
-            } else {
-                flywheelPower = 0;
-            }
-
-            if (gamepad2.y) {
+            if (gamepad1.dpad_up) {
                 armMotorPower = 1;
-            } else if (gamepad2.x) {
+            } else if (gamepad1.dpad_down) {
                 armMotorPower = -1;
             } else {
                 armMotorPower = 0;
@@ -122,7 +112,6 @@ public class Drive extends LinearOpMode {
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
-            flywheel.setPower(flywheelPower);
             armMotor.setPower(armMotorPower);
 
             // Show the elapsed game time and wheel power.
