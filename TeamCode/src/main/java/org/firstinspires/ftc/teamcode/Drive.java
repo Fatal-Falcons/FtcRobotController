@@ -62,6 +62,7 @@ public class Drive extends LinearOpMode {
     private DcMotor rightDrive = null;
     private DcMotor armMotor = null;
     private Servo armServo = null;
+    private DcMotor flywheel = null;
     static final double INCREMENT   = 0.01;     // amount to slew servo each CYCLE_MS cycle
     static final int    CYCLE_MS    =   50;     // period of each cycle
     static final double MAX_POS     =  1.0;     // Maximum rotational position
@@ -80,7 +81,7 @@ public class Drive extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
-
+        flywheel = hardwareMap.get(DcMotor.class, "flywheel");
 
 
         // Most robots need the motor on one side to be reversed to drive forward
@@ -89,6 +90,7 @@ public class Drive extends LinearOpMode {
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.FORWARD);
         armServo.setDirection(Servo.Direction.FORWARD);
+        flywheel.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -102,6 +104,7 @@ public class Drive extends LinearOpMode {
             double rightPower;
             double armMotorPower;
             double armServoPower;
+            double flywheelPower = 0;
 
             // Choose to drive using either Tank Mode, or POV Mode
             // Comment out the method that's not used.  The default below is POV.
@@ -127,12 +130,18 @@ public class Drive extends LinearOpMode {
             } else {
                 armServoPower = 0;
             }
+            if (gamepad2.right_trigger != 0 ) {
+                flywheelPower = 1;
+            } else {
+                flywheelPower = 0;
+            }
 
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
             armMotor.setPower(armMotorPower);
             armServo.setPosition(armServoPower);
+            flywheel.setPower(flywheelPower);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
