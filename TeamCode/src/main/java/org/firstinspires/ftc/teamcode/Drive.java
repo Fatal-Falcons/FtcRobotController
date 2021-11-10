@@ -130,6 +130,7 @@ public class Drive extends LinearOpMode {
             } else {
                 armServoPower = 0;
             }
+            //Flywheel code
             if (gamepad2.right_trigger != 0 ) {
                 flywheelPower = 1;
             } else {
