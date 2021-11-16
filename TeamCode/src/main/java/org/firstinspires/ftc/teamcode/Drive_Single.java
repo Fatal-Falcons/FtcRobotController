@@ -50,9 +50,9 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Drive", group="Linear Opmode")
+@TeleOp(name="Drive_Single", group="Linear Opmode")
 //@Disabled
-public class Drive extends LinearOpMode {
+public class Drive_Single extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -115,20 +115,19 @@ public class Drive extends LinearOpMode {
                 armMotor.setPower(.4);
                 sleep(500);
                 armMotor.setPower(0);
-                sleep(500);
                 this.clawPosition = 0;
                 first = false;
             }
 
-            if (gamepad2.a) {
+            if (gamepad1.a) {
                 clawPosition = .67;
             } else {
                 clawPosition = .5;
             }
 
-            if (gamepad2.dpad_down) {
+            if (gamepad1.dpad_down) {
                 armMotorPower = .5;
-            } else if (gamepad2.dpad_up) {
+            } else if (gamepad1.dpad_up) {
                 armMotorPower = -.5;
             } else {
                 armMotorPower = 0;
@@ -136,9 +135,9 @@ public class Drive extends LinearOpMode {
 
             //Flywheel code
             if (gamepad1.right_trigger != 0 ) {
-                flywheelPower = .5;
+                flywheelPower = 1;
             } else if (gamepad1.left_trigger != 0) {
-                flywheelPower = -.5;
+                flywheelPower = -1;
             } else {
                 flywheelPower = 0;
             }
