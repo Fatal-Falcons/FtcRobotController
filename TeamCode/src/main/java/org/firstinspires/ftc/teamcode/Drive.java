@@ -84,8 +84,8 @@ public class Drive extends LinearOpMode {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.REVERSE);
-        clawOne.setDirection(Servo.Direction.FORWARD);
-        clawTwo.setDirection(Servo.Direction.REVERSE);
+        clawOne.setDirection(Servo.Direction.REVERSE);
+        clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
