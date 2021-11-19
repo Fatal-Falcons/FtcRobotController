@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
             // Reverse the motor that runs backwards when connected directly to the battery
             leftDrive.setDirection(DcMotor.Direction.REVERSE);
             rightDrive.setDirection(DcMotor.Direction.FORWARD);
-            armMotor.setDirection(DcMotor.Direction.FORWARD);
+            armMotor.setDirection(DcMotor.Direction.REVERSE);
             clawOne.setDirection(Servo.Direction.FORWARD);
             clawTwo.setDirection(Servo.Direction.REVERSE);flywheel.setDirection(DcMotor.Direction.FORWARD);
 
