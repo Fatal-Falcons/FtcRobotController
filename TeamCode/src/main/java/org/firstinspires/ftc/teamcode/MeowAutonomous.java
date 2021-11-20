@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="Meow Autonomous", group="Exercises")
-@Disabled
+//@Disabled
 public class MeowAutonomous extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
@@ -83,20 +83,17 @@ public class MeowAutonomous extends LinearOpMode {
         telemetry.addData("Mode", "running");
         telemetry.update();
 
-        encoderDrive(DRIVE_SPEED,  20,  20, 0.2);
+        encoderDrive(DRIVE_SPEED,  20,  20, 0.5);
 
-        encoderDrive(TURN_SPEED, -45, 45, 0.75);
+        encoderDrive(TURN_SPEED, -45, 45, 1);
 
-        encoderDrive(DRIVE_SPEED, 40, 40, 1);
-
+        encoderDrive(DRIVE_SPEED, 60, 60, 3);
 
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutS) {
         int newLeftTargetOne;
         int newRightTargetOne;
-        int newLeftTargetTwo;
-        int newRightTargetTwo;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
