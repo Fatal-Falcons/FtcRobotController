@@ -10,9 +10,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Meow BlueAutonomous1", group="Exercises")
+@Autonomous(name="Meow TestAutonomous1", group="Exercises")
 //@Disabled
-public class MeowBlueAutonomous1 extends LinearOpMode {
+public class MeowTestAutonomous1 extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
 
