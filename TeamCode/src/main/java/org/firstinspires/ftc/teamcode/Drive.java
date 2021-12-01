@@ -54,6 +54,7 @@ import com.qualcomm.robotcore.util.Range;
 //@Disabled
 public class Drive extends LinearOpMode {
 
+
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
@@ -88,6 +89,17 @@ public class Drive extends LinearOpMode {
         clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        flywheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        flywheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
@@ -115,15 +127,14 @@ public class Drive extends LinearOpMode {
                 armMotor.setPower(.4);
                 sleep(500);
                 armMotor.setPower(0);
-                sleep(500);
                 this.clawPosition = 0;
                 first = false;
             }
 
             if (gamepad2.a) {
-                clawPosition = .67;
-            } else {
                 clawPosition = .5;
+            } else {
+                clawPosition = -.8;
             }
 
             if (gamepad2.dpad_down) {
