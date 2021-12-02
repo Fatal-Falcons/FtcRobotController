@@ -86,7 +86,7 @@ public class Drive extends LinearOpMode {
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.REVERSE);
         clawOne.setDirection(Servo.Direction.REVERSE);
-        clawTwo.setDirection(Servo.Direction.FORWARD);
+        clawTwo.setDirection(Servo.Direction.REVERSE);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
