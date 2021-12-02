@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -44,10 +45,10 @@ public class MeowTestAutonomous2 extends LinearOpMode {
         clawTwo = hardwareMap.get(Servo.class, "claw_two");
 
         // sets the direction of the motors
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        armMotor.setDirection(DcMotor.Direction.REVERSE);
-        clawOne.setDirection(Servo.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+            armMotor.setDirection(DcMotor.Direction.FORWARD);
+        clawOne.setDirection(Servo.Direction.FORWARD);
         clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
