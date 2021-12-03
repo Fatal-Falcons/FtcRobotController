@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode;
-
+//this auto has made 2 fulls and needs to be fixed for the other 2
 import android.drm.DrmUtils;
 import android.util.Log;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -10,9 +10,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Meow TestAutonomous1", group="Exercises")
+@Autonomous(name="Meow TestAutonomous", group="Exercises")
 //@Disabled
-public class MeowTestAutonomous1 extends LinearOpMode {
+public class MeowTestAutonomous extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
 

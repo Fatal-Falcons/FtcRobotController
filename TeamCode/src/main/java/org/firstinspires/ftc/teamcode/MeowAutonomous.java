@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode;
-
+//this auto. makes a partial no matter where its at
 import android.drm.DrmUtils;
 import android.util.Log;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
