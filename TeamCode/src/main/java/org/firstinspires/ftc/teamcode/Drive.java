@@ -84,9 +84,9 @@ public class Drive extends LinearOpMode {
         // Reverse the motor that runs backwards when connected directly to the battery
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        armMotor.setDirection(DcMotor.Direction.REVERSE);
-        clawOne.setDirection(Servo.Direction.REVERSE);
-        clawTwo.setDirection(Servo.Direction.REVERSE);
+        armMotor.setDirection(DcMotor.Direction.FORWARD);
+        clawOne.setDirection(Servo.Direction.FORWARD);
+        clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -112,6 +112,7 @@ public class Drive extends LinearOpMode {
             double rightPower;
             double armMotorPower;
             double flywheelPower;
+            double clawtwoPosition;
 
             // Choose to drive using either Tank Mode, or POV Mode
             // Comment out the method that's not used.  The default below is POV.
@@ -136,6 +137,11 @@ public class Drive extends LinearOpMode {
             } else {
                 clawPosition = -.8;
             }
+            if (gamepad2.a) {
+                clawtwoPosition = -.5;
+            } else {
+                clawtwoPosition = .8;
+            }
 
             if (gamepad2.dpad_down) {
                 armMotorPower = .5;
@@ -159,7 +165,7 @@ public class Drive extends LinearOpMode {
             rightDrive.setPower(rightPower);
             armMotor.setPower(armMotorPower);
             flywheel.setPower(flywheelPower);
-            clawTwo.setPosition(clawPosition);
+            clawTwo.setPosition(clawtwoPosition);
             clawOne.setPosition(clawPosition);
 
             // Show the elapsed game time and wheel power.
