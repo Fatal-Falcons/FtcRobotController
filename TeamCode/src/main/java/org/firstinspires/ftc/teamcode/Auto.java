@@ -53,7 +53,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
             rightDrive.setDirection(DcMotor.Direction.FORWARD);
             armMotor.setDirection(DcMotor.Direction.REVERSE);
             clawOne.setDirection(Servo.Direction.FORWARD);
-            clawTwo.setDirection(Servo.Direction.REVERSE);flywheel.setDirection(DcMotor.Direction.FORWARD);
+            clawTwo.setDirection(Servo.Direction.REVERSE);
+            flywheel.setDirection(DcMotor.Direction.FORWARD);
 
             // Wait for the game to start (driver presses PLAY)
             waitForStart();
