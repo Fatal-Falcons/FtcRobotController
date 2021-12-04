@@ -84,7 +84,7 @@ public class MeowTestAutonomous extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED, 20, 20, 0.5);
 
-        encoderDrive(TURN_SPEED, -45, 45, 0.5);
+        encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
 
