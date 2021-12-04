@@ -59,12 +59,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
             // Wait for the game to start (driver presses PLAY)
             waitForStart();
 
-            armMotor.setPower(.3);
-            sleep(1000);
+            armMotor.setPower(.23);
+            sleep(250);
             armMotor.setPower(0);
             sleep(500);
             clawOne.setPosition(0);
-            clawTwo.setPosition(0);
+            clawTwo.setPosition(0.5);
 
 
             // run until the end of the match (driver presses STOP)

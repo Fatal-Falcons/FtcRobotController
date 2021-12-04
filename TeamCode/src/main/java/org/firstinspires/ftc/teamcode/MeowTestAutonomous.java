@@ -88,6 +88,14 @@ public class MeowTestAutonomous extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
 
+        armMotor.setPower(.23);
+        sleep(250);
+        armMotor.setPower(0);
+        sleep(500);
+        clawOne.setPosition(0);
+        clawTwo.setPosition(.5);
+
+
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutS) {

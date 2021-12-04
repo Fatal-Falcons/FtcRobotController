@@ -63,7 +63,7 @@ public class Drive extends LinearOpMode {
     private Servo clawOne = null;
     private DcMotor flywheel = null;
     private Servo clawTwo = null;
-    boolean first = true;
+    boolean first = false;
     double clawPosition;
     double clawTwoPosition;
 
