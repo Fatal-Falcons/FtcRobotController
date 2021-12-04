@@ -49,7 +49,7 @@ public class MeowTestAutonomous extends LinearOpMode {
 
         // sets the direction of the motors
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
         armMotor.setDirection(DcMotor.Direction.REVERSE);
         clawOne.setDirection(Servo.Direction.REVERSE);
         clawTwo.setDirection(Servo.Direction.FORWARD);
@@ -86,7 +86,7 @@ public class MeowTestAutonomous extends LinearOpMode {
 
         encoderDrive(TURN_SPEED, -45, 45, 0.7);
 
-        encoderDrive(DRIVE_SPEED, 60, 60, 3);
+        encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
 
     }
 
