@@ -48,8 +48,8 @@ public class MeowTestAutonomous extends LinearOpMode {
         clawTwo = hardwareMap.get(Servo.class, "claw_two");
 
         // sets the direction of the motors
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.REVERSE);
         clawOne.setDirection(Servo.Direction.REVERSE);
         clawTwo.setDirection(Servo.Direction.FORWARD);
