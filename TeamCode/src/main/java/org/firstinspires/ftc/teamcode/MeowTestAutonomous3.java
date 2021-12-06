@@ -1,18 +1,15 @@
 package org.firstinspires.ftc.teamcode;
-//this auto has made 2 fulls and needs to be fixed for the other 2
-import android.drm.DrmUtils;
-import android.util.Log;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+//this is a copy of test auto 1?? i dont remember lmao
+// import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-//this needs to be tested lmao
-@Autonomous(name="Meow TestAutonomous", group="Exercises")
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+@Autonomous(name="Meow TestAutonomous3", group="Exercises")
 //@Disabled
-public class MeowTestAutonomous extends LinearOpMode {
+public class MeowTestAutonomous3 extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -88,7 +85,7 @@ public class MeowTestAutonomous extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
 
-        armMotor.setPower(.25);
+        armMotor.setPower(.23);
         sleep(250);
         armMotor.setPower(0);
         sleep(500);
