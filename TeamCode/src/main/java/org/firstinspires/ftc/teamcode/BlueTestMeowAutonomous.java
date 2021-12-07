@@ -1,15 +1,15 @@
 package org.firstinspires.ftc.teamcode;
-//didnt really work out need to work on this one
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+//this is a copy of test auto 1?? i dont remember lmao
+// import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name="Meow TestAutonomous2", group="Exercises")
+@Autonomous(name="Blue Test Meow Autonomous", group="Exercises")
 //@Disabled
-public class MeowTestAutonomous2 extends LinearOpMode {
+public class BlueTestMeowAutonomous extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -28,7 +28,7 @@ public class MeowTestAutonomous2 extends LinearOpMode {
     static final double WHEEL_DIAMETER_INCHES = 2.95276;
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double DRIVE_SPEED =.6;
-    static final double TURN_SPEED = .5;
+    static final double TURN_SPEED = .7;
 
 
     // called when init button is  pressed.
@@ -45,9 +45,9 @@ public class MeowTestAutonomous2 extends LinearOpMode {
         clawTwo = hardwareMap.get(Servo.class, "claw_two");
 
         // sets the direction of the motors
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-            armMotor.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        armMotor.setDirection(DcMotor.Direction.REVERSE);
         clawOne.setDirection(Servo.Direction.REVERSE);
         clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
@@ -81,9 +81,17 @@ public class MeowTestAutonomous2 extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED, 20, 20, 0.5);
 
-        encoderDrive(TURN_SPEED, -45, 45, .5);
+        encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
-        encoderDrive(DRIVE_SPEED, 60, 60, 3);
+        encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
+
+        armMotor.setPower(.23);
+        sleep(250);
+        armMotor.setPower(0);
+        sleep(500);
+        clawOne.setPosition(0);
+        clawTwo.setPosition(.5);
+
 
     }
 

@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode;
-//this auto. makes a partial no matter where its at
 import android.drm.DrmUtils;
 import android.util.Log;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -9,10 +8,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-@Autonomous(name="Meow Autonomous", group="Exercises")
+//it makes red full lolz
+@Autonomous(name="Red Meow Autonomous", group="Exercises")
 //@Disabled
-public class MeowAutonomous extends LinearOpMode {
+public class RedMeowAutonomous extends LinearOpMode {
     // Sets the runtime variable to the elapsed time within autonomous
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -30,18 +29,17 @@ public class MeowAutonomous extends LinearOpMode {
     static final double DRIVE_GEAR_REDUCTION = 1.0;
     static final double WHEEL_DIAMETER_INCHES = 2.95276;
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double DRIVE_SPEED = 1;
-    static final double TURN_SPEED = .8;
+    static final double DRIVE_SPEED =.6;
+    static final double TURN_SPEED = .7;
 
 
     // called when init button is  pressed.
 
     @Override
-    public void runOpMode() throws InterruptedException
-    {
+    public void runOpMode() throws InterruptedException {
 
         // Defines the names of all the motors and servos
-        leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
+        leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
         flywheel = hardwareMap.get(DcMotor.class, "flywheel");
@@ -49,7 +47,7 @@ public class MeowAutonomous extends LinearOpMode {
         clawTwo = hardwareMap.get(Servo.class, "claw_two");
 
         // sets the direction of the motors
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.REVERSE);
         clawOne.setDirection(Servo.Direction.REVERSE);
@@ -71,7 +69,7 @@ public class MeowAutonomous extends LinearOpMode {
         flywheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to indicate successful Encoder reset
-        telemetry.addData("Path0",  "Starting at %7d :%7d", leftDrive.getCurrentPosition()
+        telemetry.addData("Path0", "Starting at %7d :%7d", leftDrive.getCurrentPosition()
                 , rightDrive.getCurrentPosition());
         telemetry.update();
 
@@ -83,11 +81,19 @@ public class MeowAutonomous extends LinearOpMode {
         telemetry.addData("Mode", "running");
         telemetry.update();
 
-        encoderDrive(DRIVE_SPEED,  20,  20, 0.5);
+        encoderDrive(DRIVE_SPEED, 20, 20, 0.5);
 
-        encoderDrive(TURN_SPEED, -45, 45, 1);
+        encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
-        encoderDrive(DRIVE_SPEED, 60, 60, 3);
+        encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
+
+        armMotor.setPower(.25);
+        sleep(250);
+        armMotor.setPower(0);
+        sleep(500);
+        clawOne.setPosition(0);
+        clawTwo.setPosition(.5);
+
 
     }
 
@@ -99,8 +105,8 @@ public class MeowAutonomous extends LinearOpMode {
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            newLeftTargetOne = leftDrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTargetOne = rightDrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            newLeftTargetOne = leftDrive.getCurrentPosition() + (int) (leftInches * COUNTS_PER_INCH);
+            newRightTargetOne = rightDrive.getCurrentPosition() + (int) (rightInches * COUNTS_PER_INCH);
 
             leftDrive.setTargetPosition(newLeftTargetOne);
             rightDrive.setTargetPosition(newRightTargetOne);
@@ -123,8 +129,8 @@ public class MeowAutonomous extends LinearOpMode {
             while (opModeIsActive() && (runtime.seconds() < timeoutS) && (leftDrive.isBusy() && rightDrive.isBusy())) {
 
                 // Display it for the driver.
-                telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTargetOne,  newRightTargetOne);
-                telemetry.addData("Path2",  "Running at %7d :%7d", leftDrive.getCurrentPosition(), rightDrive.getCurrentPosition());
+                telemetry.addData("Path1", "Running to %7d :%7d", newLeftTargetOne, newRightTargetOne);
+                telemetry.addData("Path2", "Running at %7d :%7d", leftDrive.getCurrentPosition(), rightDrive.getCurrentPosition());
                 telemetry.update();
             }
 
@@ -139,4 +145,5 @@ public class MeowAutonomous extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
     }
+
 }
