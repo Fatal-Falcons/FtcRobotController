@@ -49,7 +49,7 @@ public class RedMeowAutonomous extends LinearOpMode {
         // sets the direction of the motors
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        armMotor.setDirection(DcMotor.Direction.REVERSE);
+        armMotor.setDirection(DcMotor.Direction.FORWARD);
         clawOne.setDirection(Servo.Direction.REVERSE);
         clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
@@ -86,6 +86,8 @@ public class RedMeowAutonomous extends LinearOpMode {
         encoderDrive(TURN_SPEED, 45, -45, 0.6);
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
+
+        encoderDrive(TURN_SPEED, 45, -45, 0.6);
 
         armMotor.setPower(.25);
         sleep(250);
