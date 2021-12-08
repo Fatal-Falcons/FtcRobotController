@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 //this is a copy of test auto 1?? i dont remember lmao
+//this makes a full blue
 // import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -47,7 +49,7 @@ public class BlueTestMeowAutonomous extends LinearOpMode {
         // sets the direction of the motors
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        armMotor.setDirection(DcMotor.Direction.REVERSE);
+        armMotor.setDirection(DcMotor.Direction.FORWARD);
         clawOne.setDirection(Servo.Direction.REVERSE);
         clawTwo.setDirection(Servo.Direction.FORWARD);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
@@ -84,6 +86,8 @@ public class BlueTestMeowAutonomous extends LinearOpMode {
         encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
+
+        encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
         armMotor.setPower(.23); 
         sleep(250);
