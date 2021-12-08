@@ -81,11 +81,11 @@ public class BlueTestMeowAutonomous extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED, 20, 20, 0.5);
 
-        encoderDrive(TURN_SPEED, 45, -45, 0.6);
+        encoderDrive(TURN_SPEED, -45, 45, 0.6);
 
         encoderDrive(DRIVE_SPEED, 60, 60, 1.75);
 
-        armMotor.setPower(.23);
+        armMotor.setPower(.23); 
         sleep(250);
         armMotor.setPower(0);
         sleep(500);
