@@ -65,7 +65,6 @@ public class Drive extends LinearOpMode {
     private Servo clawTwo = null;
     boolean first = false;
     double clawPosition;
-    double clawTwoPosition;
 
     @Override
     public void runOpMode() {
@@ -86,8 +85,8 @@ public class Drive extends LinearOpMode {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         armMotor.setDirection(DcMotor.Direction.FORWARD);
-        clawOne.setDirection(Servo.Direction.REVERSE);
-        clawTwo.setDirection(Servo.Direction.FORWARD);
+        clawOne.setDirection(Servo.Direction.FORWARD);
+        clawTwo.setDirection(Servo.Direction.REVERSE);
         flywheel.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -125,32 +124,26 @@ public class Drive extends LinearOpMode {
             rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
             if (first) {
-                armMotor.setPower(.23);
-                sleep(250);
+                armMotor.setPower(.25);
+                sleep(500);
                 armMotor.setPower(0);
-                this.clawPosition = 0;
-                this.clawTwoPosition = -.5;
+                this.clawPosition = 1;
                 first = false;
             }
 
             if (gamepad2.a) {
                 clawPosition = .5;
             } else {
-                clawPosition = -.8;
-            }
-            if (gamepad2.a) {
-                clawTwoPosition = .5;
-            } else {
-                clawTwoPosition = -.8;
+                clawPosition = 1;
             }
 
-            if (gamepad2.dpad_down) {
+            /*if (gamepad2.dpad_down) {
                 armMotorPower = .1;
             } else if (gamepad2.dpad_up) {
                 armMotorPower = -.1;
             } else {
                 armMotorPower = 0;
-            }
+            }*/
 
             //Flywheel code
             if (gamepad1.right_trigger != 0 ) {
@@ -161,13 +154,15 @@ public class Drive extends LinearOpMode {
                 flywheelPower = 0;
             }
 
+            armMotorPower = gamepad2.left_stick_y / 2;
+
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
             armMotor.setPower(armMotorPower);
             flywheel.setPower(flywheelPower);
-            clawTwo.setPosition(clawTwoPosition);
             clawOne.setPosition(clawPosition);
+            clawTwo.setPosition(clawPosition);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
